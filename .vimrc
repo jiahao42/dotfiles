@@ -5,6 +5,7 @@ set autoindent
 set smartindent
 set smarttab
 set number
+set shellcmdflag=-ic
 syntax on
 colorscheme desert
 
