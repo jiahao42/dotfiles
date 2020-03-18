@@ -9,6 +9,7 @@ export ZSH=/Users/james/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="custom"
 #ZSH_THEME="robbyrussell"
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -32,7 +33,7 @@ ZSH_THEME="custom"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+#COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -208,7 +209,6 @@ export PIN_ROOT="/Users/james/fall-2018/pin-3.7-97619-g0d0c92f4f-clang-mac"
 export PATH="/usr/local/Cellar/ruby/2.6.2/bin:$PATH"
 export PATH="/usr/bin:$PATH:/usr/local/Cellar/gcc-arm-none-eabi-49/20150925/bin/:$RACKET_PATH:$PIN_ROOT:$PYTHONPATH"
 # export PYTHONPATH="$PATH:/Users/james/Desktop/mlsh/gym:/Users/james/Desktop/mlsh/rl-algs:/Users/james/Research/Oger/"
-export GOPATH="/Users/james/blockchain"
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 export PATH="/Users/james/PHP_malware/SAT/aspis:$PATH"
@@ -217,3 +217,4 @@ export PATH="/Users/james/Library/Python/3.6/bin:$PATH"
 export PATH="/Users/james/Library/Android/sdk/platform-tools:$PATH"
 # eval $(/path/to/code-insight.phar _completion --generate-hook -p code-insight.phar)
 
+export HOMEBREW_NO_AUTO_UPDATE=1

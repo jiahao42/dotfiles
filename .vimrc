@@ -1,11 +1,3 @@
-set expandtab
-set shiftwidth=2
-set tabstop=2
-set autoindent
-set smartindent
-set smarttab
-set number
-set shellcmdflag=-ic
 syntax on
 colorscheme desert
 
@@ -26,8 +18,15 @@ Plugin 'ycm-core/YouCompleteMe'
 let g:ycm_key_list_stop_completion = ['<Enter>']
 let g:ycm_autoclose_preview_window_after_completion = 1
 
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
+Plugin 'christoomey/vim-sort-motion'
+Plugin 'christoomey/vim-system-copy'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/ReplaceWithRegister'
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-line'
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -48,7 +47,7 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
+filetype plugin indent on
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -60,4 +59,36 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+if has('eval')
+  function! Compile()
+    execute ':w'
+    let l:ext = expand('%:e')
+    let l:path = expand('%:h')
+    if l:ext == "tex"
+      let l:pdf = expand('%:r') . ".pdf"
+      echo l:pdf
+      echo l:path
+      "execute '!echo '.l:path . '> test.txt'
+      execute '!pdflatex % && xdg-open ' . l:pdf 
+    elseif l:ext == "md"
+      let l:pdf = expand('%:r') . ".pdf"
+      echo l:pdf
+      execute '!pandoc % --pdf-engine=xelatex -o ' . l:pdf . ' && xdg-open ' . l:pdf
+    elseif l:ext == "py"
+      execute '! clear && python3 %'
+    endif
+  endfunction
+endif
+
+map <F5> : call Compile() 
+
+set tabstop=2
+set softtabstop=2
+set shiftwidth=0
+set expandtab
+set autoindent
+set smartindent
+set smarttab
+set number
 
