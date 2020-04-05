@@ -1,3 +1,14 @@
+set tabstop=2
+set softtabstop=2
+set shiftwidth=0
+"set expandtab "turn tab into spaces
+set autoindent
+set smartindent
+set smarttab
+set number
+"  -ic makes vim read alias in zshrc
+"  but it hangs after executing external commands 
+"set shellcmdflag=-ic
 syntax on
 colorscheme desert
 
@@ -69,26 +80,30 @@ if has('eval')
       let l:pdf = expand('%:r') . ".pdf"
       echo l:pdf
       echo l:path
-      "execute '!echo '.l:path . '> test.txt'
-      execute '!pdflatex % && xdg-open ' . l:pdf 
+      execute '!pdflatex %' 
+      ". '&& xdg-open ' . l:pdf 
     elseif l:ext == "md"
       let l:pdf = expand('%:r') . ".pdf"
       echo l:pdf
       execute '!pandoc % --pdf-engine=xelatex -o ' . l:pdf . ' && xdg-open ' . l:pdf
     elseif l:ext == "py"
       execute '! clear && python3 %'
+    elseif l:ext == "go"
+      execute '! clear && go run %'
+    endif
+  endfunction
+
+  function! Format()
+    let l:ext = expand('%:e')
+    if l:ext == "json"
+      execute '%!jq .'
+    elseif l:ext == "c" || l:ext == "cpp"
+      execute '%!clang-format'
     endif
   endfunction
 endif
 
 map <F5> : call Compile() 
+map <F4> : call Format()
 
-set tabstop=2
-set softtabstop=2
-set shiftwidth=0
-set expandtab
-set autoindent
-set smartindent
-set smarttab
-set number
 
