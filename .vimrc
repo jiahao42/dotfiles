@@ -1,11 +1,12 @@
 set tabstop=2
 set softtabstop=2
 set shiftwidth=0
-"set expandtab "turn tab into spaces
+set expandtab "turn tab into spaces
 set autoindent
 set smartindent
 set smarttab
 set number
+"set iskeyword-=_
 "  -ic makes vim read alias in zshrc
 "  but it hangs after executing external commands 
 "set shellcmdflag=-ic
@@ -38,6 +39,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-line'
+Plugin 'wlangstroth/vim-racket'
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -90,6 +92,8 @@ if has('eval')
       execute '! clear && python3 %'
     elseif l:ext == "go"
       execute '! clear && go run %'
+		elseif l:ext == "rkt"
+			execute '! clear && racket %'
     endif
   endfunction
 
@@ -99,11 +103,14 @@ if has('eval')
       execute '%!jq .'
     elseif l:ext == "c" || l:ext == "cpp"
       execute '%!clang-format'
+    elseif l:ext == "xml"
+      execute '%!xmllint --format %'
     endif
   endfunction
 endif
 
 map <F5> : call Compile() 
 map <F4> : call Format()
+
 
 
