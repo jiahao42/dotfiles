@@ -109,8 +109,8 @@ if has('eval')
   endfunction
 endif
 
-map <F5> : call Compile() 
-map <F4> : call Format()
+map <F5> : call Compile() <CR>
+map <F4> : call Format() <CR>
 
 
 
