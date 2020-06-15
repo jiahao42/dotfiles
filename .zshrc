@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/jiahao/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -98,19 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias c="clear"
-alias o="xdg-open"
 alias dld="aria2c -c -x 16 -s 16 -d ~/Downloads "
 alias reload="source ~/.zshrc"
 alias search="grep -rn . -e "
-alias adb="$HOME/Android/Sdk/platform-tools/adb"
 
-export WINEDEBUG=-all
-export LLVM_COMPILER=clang
-export GOPATH=$HOME/go
-export GOROOT=/usr/local/go
-
-export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-#export WORKON_HOME=$HOME/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
-
-export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
