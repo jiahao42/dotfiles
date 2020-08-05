@@ -109,6 +109,9 @@ if has('eval')
   endfunction
 endif
 
+nmap <leader>d<space> A<space>-<space><C-R>=strftime("%Y.%m.%d")<CR><Esc>
+imap <leader>d<space> <C-R>=strftime("%Y.%m.%d")<CR>
+nmap <leader>dd<space> $xxxxxxxxxxxxx<Esc>
 map <F5> : call Compile() <CR>
 map <F4> : call Format() <CR>
 
