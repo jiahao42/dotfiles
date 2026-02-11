@@ -88,4 +88,9 @@
     "light": "One Light",
     "dark": "One Dark",
   },
+  "search": {
+    "whole_word": false,
+    "case_sensitive": false,
+    "regex": false,
+  },
 }
