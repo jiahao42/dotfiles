@@ -88,6 +88,12 @@
     "light": "One Light",
     "dark": "One Dark",
   },
+  "theme_overrides": {
+    "One Dark": {
+      "version_control.added": "#00FF42FF",
+      "version_control.deleted": "#FF0008FF",
+    },
+  },
   "search": {
     "whole_word": false,
     "case_sensitive": false,
